@@ -5,7 +5,13 @@
     xmlns:local="using:RestaurantManager.universalwindows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Foreground="White" Background="Black">
+    mc:Ignorable="d" Foreground="White">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,7 +25,7 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="ApplicationTitle" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Restaurant Manager" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
         <TextBlock x:Name="ApplicationVersion" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Internal Test Version" VerticalAlignment="Bottom" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16"/>
-        <TextBlock x:Name="GoToOrdersButton" HorizontalAlignment="Center" TextWrapping="Wrap" Text="**Go to Orders View**" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-        <TextBlock x:Name="SubmitButton" HorizontalAlignment="Center" TextWrapping="Wrap" Text="**Submit Order**" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+        <Button x:Name="GoToOrdersButton" HorizontalAlignment="Center" Content="Go to Orders View" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Click="GoToOrdersButton_Click" />
+        <Button x:Name="SubmitButton" HorizontalAlignment="Center" Content="Submit Order" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Click="SubmitButton_Click"/>
     </Grid>
 </Page>
