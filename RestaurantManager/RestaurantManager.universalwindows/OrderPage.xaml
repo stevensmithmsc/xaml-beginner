@@ -26,9 +26,9 @@
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Special Requests:" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Order Items:" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" />
-        <Button x:Name="AddToOrderButton" HorizontalAlignment="Center" Content="Add to Order View" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="AddToOrderButton" HorizontalAlignment="Center" Content="Add to Order View" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Click="AddToOrderButton_Click"/>
         <Button x:Name="SubmitButton" HorizontalAlignment="Center" Content="Submit Order" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding MenuItems}"/>
-        <ListView Grid.Row="2" Grid.Column="2" ItemsSource="{Binding CurrentlySelectedMenuItems}"/>
+        <ListView x:Name="MenuList" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding MenuItems}"/>
+        <ListView x:Name="OrderItems" Grid.Row="2" Grid.Column="2" ItemsSource="{Binding CurrentlySelectedMenuItems}"/>
     </Grid>
 </Page>

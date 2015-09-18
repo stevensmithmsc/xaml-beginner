@@ -26,16 +26,19 @@ namespace RestaurantManager.Models
                 "Pita"
             };
 
-            this.CurrentlySelectedMenuItems = new List<string>
-            {
-                "Rice",
-                "Pita"
-            };
+            this.CurrentlySelectedMenuItems = new ObservableCollection<string>(
+                new List<string>
+                {
+                    "Rice",
+                    "Pita"
+                }
+             );
+            
 
         }
 
         public ObservableCollection<string> OrderItems { get; set; }
         public List<string> MenuItems { get; set; }
-        public List<string> CurrentlySelectedMenuItems { get; set; }
+        public ObservableCollection<string> CurrentlySelectedMenuItems { get; set; }
     }
 }
