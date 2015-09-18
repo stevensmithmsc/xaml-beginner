@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 namespace RestaurantManager.universalwindows
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Main Page - used to access other pages
     /// </summary>
     public sealed partial class MainPage : Page
     {

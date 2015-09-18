@@ -19,7 +19,8 @@ using RestaurantManager.Models;
 namespace RestaurantManager.universalwindows
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Expediate Page - For Viewing and removing orders.
+    /// Used by Kitchen.
     /// </summary>
     public sealed partial class ExpeditePage : Page
     {

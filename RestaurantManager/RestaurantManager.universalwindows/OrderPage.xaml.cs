@@ -19,7 +19,8 @@ using RestaurantManager.Models;
 namespace RestaurantManager.universalwindows
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Order page - used to add menu items to order and create orders.
+    /// Used by service staff (waiters/waitresses).
     /// </summary>
     public sealed partial class OrderPage : Page
     {
@@ -34,11 +35,32 @@ namespace RestaurantManager.universalwindows
         }
 
         private void AddToOrderButton_Click(object sender, RoutedEventArgs e)
-        {// need to check for nulls!
-            String OrderItem = this.MenuList.SelectedItem.ToString();
+        {
+            // get reference to data source
             DataManager dm = App.Current.Resources["DataManager"] as DataManager;
-            dm.CurrentlySelectedMenuItems.Add(OrderItem);
-            this.OrderItems.ItemsSource = dm.CurrentlySelectedMenuItems;
+
+            // add each selected menu item to the currently selected items
+            foreach (Object OrderItem in this.MenuList.SelectedItems) {
+                dm.CurrentlySelectedMenuItems.Add(OrderItem.ToString());
+            }
+
+            // remove selections
+            this.MenuList.SelectedIndex = -1;
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            // get reference to data source
+            DataManager dm = App.Current.Resources["DataManager"] as DataManager;
+
+            // convert currently selected items to a single string
+            String Order = String.Join(", ", dm.CurrentlySelectedMenuItems);
+
+            // add to orders
+            dm.OrderItems.Add(Order);
+
+            // clear currently selected items
+            dm.CurrentlySelectedMenuItems.Clear();
         }
     }
 }

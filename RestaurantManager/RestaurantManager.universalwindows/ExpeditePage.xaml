@@ -5,7 +5,15 @@
     xmlns:local="using:RestaurantManager.universalwindows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Foreground="White" DataContext="{StaticResource DataManager}">
+    mc:Ignorable="d" Foreground="White" DataContext="{StaticResource DataManager}"
+    Background="{StaticResource BlackBlueGradient}">
+    <Page.Resources>
+        <Style TargetType="GridViewItem">
+            <Setter Property="MinWidth" Value="100" />
+            <Setter Property="MinHeight" Value="100" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </Page.Resources>
     <Page.TopAppBar>
         <AppBar>
             <AppBarButton x:Name="HomeButton" Icon="Home" Label="Home" Click="HomeButton_Click" />
@@ -17,6 +25,6 @@
             <RowDefinition Height="0.1*" />
         </Grid.RowDefinitions>
         <Button x:Name="ClearOrdersButton" HorizontalAlignment="Center" Content="Clear All Orders" VerticalAlignment="Center" Grid.Row="1" Click="ClearOrdersButton_Click" />
-        <GridView x:Name="OrdersGrid" Grid.Row="0" ItemsSource="{Binding OrderItems}"/>
+        <GridView x:Name="OrdersGrid" Grid.Row="0" ItemsSource="{Binding OrderItems}" Margin="10" />
     </Grid>
 </Page>
