@@ -5,13 +5,7 @@
     xmlns:local="using:RestaurantManager.universalwindows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Foreground="White">
-    <Page.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="Blue" Offset="1"/>
-        </LinearGradientBrush>
-    </Page.Background>
+    mc:Ignorable="d" Foreground="White" DataContext="{StaticResource DataManager}">
     <Page.TopAppBar>
         <AppBar>
             <AppBarButton x:Name="HomeButton" Icon="Home" Label="Home" Click="HomeButton_Click" />
@@ -34,7 +28,7 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Order Items:" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" />
         <Button x:Name="AddToOrderButton" HorizontalAlignment="Center" Content="Add to Order View" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
         <Button x:Name="SubmitButton" HorizontalAlignment="Center" Content="Submit Order" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" />
-        <ListView Grid.Row="2" Grid.Column="2" />
+        <ListView Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding MenuItems}"/>
+        <ListView Grid.Row="2" Grid.Column="2" ItemsSource="{Binding CurrentlySelectedMenuItems}"/>
     </Grid>
 </Page>
